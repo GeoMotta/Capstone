@@ -17,13 +17,13 @@ def home():
 
 @app.route("/dashboard") 
 def dashboard(): 
-    return render_template('dashboard.html')
+    return render_template('dashboard.html', project_name='Mkapa Fellows')
 
 
 
 @app.route("/project") 
 def project(): 
-    return render_template('project.html')
+    return render_template('project.html', project_name= 'Mkapa Fellows')
 
 
 @app.route("/users") 
