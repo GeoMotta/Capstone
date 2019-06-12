@@ -14,7 +14,6 @@ def home():
     return render_template('home.html')
 
 
-
 @app.route("/dashboard") 
 def dashboard(): 
     return render_template('dashboard.html', project_name='Mkapa Fellows')
@@ -49,6 +48,10 @@ def help():
 @app.route("/Settings") 
 def settings(): 
     return render_template('settings.html')
+
+@app.route("/new_project") 
+def new_project(): 
+    return render_template('new_project.html')
 
 
 
