@@ -5,12 +5,20 @@
 
 {% block content %}
 
-<h1>New Project</h1>
-
 <section>
     <h1>New Project</h1>
-    <form>
-        
+    <form action="" method="POST">
+        {{ form.hidden_tag() }}
+        <table>
+            <tr>
+                <td>Project Name</td>
+                <td>{{ form.project_name(size=50) }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button type="submit">submit</button></td>
+            </tr>
+        </table>
     </form>
 </section>
 

@@ -8,8 +8,19 @@
 
 <h1>Home</h1>
 
-<a href="{{url_for('new_project')}}">
+<a href="{{url_for('NewProject')}}">
     <span>New Project</span>
 </a>
+
+<section>
+    <h2>Recent Projects</h2>
+    {% if recent_projects %}
+        <ul>
+            {% for project in recent_projects %}
+                <li>{{project.name}}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</section>
 
 {% endblock %}

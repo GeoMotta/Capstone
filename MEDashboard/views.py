@@ -1,6 +1,7 @@
-from flask import render_template, url_for
+from flask import render_template, url_for, request, redirect, flash
 from datetime import datetime
 from MEDashboard import app
+from MEDashboard.forms import new_project
 
 
 
@@ -8,10 +9,17 @@ from MEDashboard import app
 def login(): 
     return render_template('login.html')
 
+#---------------------------------[ Home Page ]-------------------------------------
+
 @app.route('/')
 @app.route("/home") 
 def home(): 
-    return render_template('home.html')
+    return render_template('home.html', recent_projects = recent_project())
+
+def recent_project():
+    #Returns lastest created projects
+    recent_projects = [{'name': 'Mkapa Fellows', 'url': 'Mkapa'}, {'name': 'TB/HIV', 'url': 'TB'}, {'name': 'Self Testing', 'url': 'Self'}] 
+    return recent_projects
 
 
 @app.route("/dashboard") 
@@ -49,9 +57,20 @@ def help():
 def settings(): 
     return render_template('settings.html')
 
-@app.route("/new_project") 
-def new_project(): 
-    return render_template('new_project.html')
+
+#----------------------------------------------------------------------
+
+@app.route("/new_project", methods=['GET', 'POST']) 
+def NewProject(): 
+    # Generate a form for new project
+
+    form = new_project()
+    if form.validate_on_submit():
+        project_name = form.project_name.data
+        print(project_name)
+        flash('Project name entered {}'.format(project_name))
+        return redirect(url_for('home'))
+    return render_template('new_project.html', form = form)
 
 
 
