@@ -8,8 +8,11 @@ from sqlalchemy import Table, Column, Integer, String, MetaData,ForeignKey
 class Project(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.Text, nullable=False)
-    start_date = Column(db.DateTime, default = datetime.utcnow) 
-    description = db.Column(db.String(300))
+    start_date = db.Column(db.Text, nullable=False)
+    description = db.Column(db.Text, nullable=False)
+    
+    #start_date = Column(db.DateTime, default = datetime.utcnow) 
+    #description = db.Column(db.String(300))
 
     def __repr__(self):
         return "<Project '{}': '{}'>".format(self.name, self.description)

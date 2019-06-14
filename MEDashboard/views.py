@@ -1,7 +1,8 @@
 from flask import render_template, url_for, request, redirect, flash
 from datetime import datetime
-from MEDashboard import app
+from MEDashboard import app, db
 from MEDashboard.forms import new_project
+from MEDashboard.models import Project, User
 
 
 
@@ -67,10 +68,19 @@ def NewProject():
     form = new_project()
     if form.validate_on_submit():
         project_name = form.project_name.data
+        Project_description = form.Project_description.data
+        start_date = form.start_date.data
+        end_date = form.end_date.data
+
+        prj = Project(name = project_name, start_date = start_date, description = Project_description)
+        db.session.add(prj)
+        db.session.commit()
+
         print(project_name)
         flash('Project name entered {}'.format(project_name))
         return redirect(url_for('home'))
     return render_template('new_project.html', form = form)
+
 
 
 
