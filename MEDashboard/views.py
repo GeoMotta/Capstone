@@ -6,8 +6,10 @@ from MEDashboard.models import Project, User
 
 
 
-@app.route("/login") 
+@app.route("/login", methods=['GET', 'POST']) 
 def login(): 
+    if request.method == 'POST':
+        return redirect(url_for('home'))
     return render_template('login.html')
 
 #---------------------------------[ Home Page ]-------------------------------------
@@ -49,7 +51,7 @@ def calendar():
     return render_template('calendar.html')
 
 
-@app.route("/help") 
+@app.route("/help", methods=['GET', 'POST']) 
 def help(): 
     return render_template('help.html')
 
@@ -83,7 +85,13 @@ def NewProject():
 
 
 
-
+@app.route("/add_project", methods=['GET', 'POST']) 
+def addProject(): 
+    if request.method == 'POST':
+        dat = request.form.to_dict()
+        print(dat)
+        #print(type(dat))
+    return render_template('add_project.html')
 
 
 
