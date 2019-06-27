@@ -1,37 +1,219 @@
-{% extends "main_layout.html" %}
+{% extends "layout.html" %}
 
 {% block title %} New Project {% endblock %}
 <!-------------------------------------------------------------------------------->
 
+{% block css %}
+    <script src="../static/vendor/jquery/jquery.min.js"></script>
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+<!-------------------------------------------------------------------------------->
+
+
+
 {% block content %}
 
-<section>
-    <h1>New Project</h1>
-    <form action="" method="POST">
-        {{ form.hidden_tag() }}
-        <table>
-            <tr>
-                <td>Project Name</td>
-                <td>{{ form.project_name(size=50) }}</td>
-            </tr>
-            <tr>
-                <td>Project Description</td>
-                <td>{{ form.Project_description(size=50) }}</td>
-            </tr>
-            <tr>
-                <td>Start Date</td>
-                <td>{{ form.start_date(size=50) }}</td>
-            </tr>
-            <tr>
-                <td>End Date</td>
-                <td>{{ form.end_date(size=50) }}</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><button type="submit">submit</button></td>
-            </tr>
-        </table>
-    </form>
-</section>
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">New Project</h1>
+<p class="mb-4">
+    Short description about adding the new project to the system. probable with a <a target="_blank" href="">link</a>
+    to help center page for more information and instruction.
+</p>
+<div class="card">
+    <div class="card-header">
+        Basic information
+    </div>
+    <div class="card-body">
 
+
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <form>
+
+                    <!---- Basic Information ----->
+                    <h5 class="card-title mb-2 text-gray-900">Basic Information</h5>
+                    <hr class="sidebar-divider my-0">
+                    <br>
+
+                    <div class="form-group">
+                        <label for="project_name">Project Title</label>
+                        <input type="text" class="form-control" id="project_name" aria-describedby="emailHelp"
+                            placeholder="Give your project a name">
+                    </div>
+                    <div class="form-group">
+                        <label for="project_descr">Description</label>
+                        <textarea class="form-control" id="project_descr" rows="2"></textarea>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="start_date">Start Date</label>
+                                <input id="start_datepicker" placeholder="start"/>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="start_date">End Date</label>
+                                    <input id="end_datepicker" placeholder="End"/>
+                                </div>
+                            </div>
+                    </div>
+
+                    <!---- /End of Basic Information ----->
+
+                    <br>
+                    <h5 class="card-title mb-2 text-gray-900">Strategic/Specific Objectives</h5>
+                    <hr class="sidebar-divider my-0">
+                    <br>
+
+                    <div class="card mb-4  border-left-primary" id="dynamic_form">
+                        <div class="card-body">
+                                <div class="form-group">
+                                    <label for="project_name">Strategic Objective</label>
+                                    <input type="text" class="form-control" id="project_name" aria-describedby="emailHelp"
+                                        placeholder="Give your project a name">
+                                </div>
+
+
+
+
+
+
+                            <div class="row">
+                             
+                                <div class="form-group">
+                                    <label for="project_name">Project Title</label>
+                                    <input type="text" class="form-control" id="project_name" aria-describedby="emailHelp"
+                                        placeholder="Give your project a name">
+                                </div>
+
+
+
+                                <div class="col-md-3">
+                                    <input type="text" name="p_name2" id="p_name2" placeholder="Project Name2" class="form-control">
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" name="quantity" id="quantity" placeholder="Description">
+                                </div>
+                                <div class="col-md-4">
+                                    <textarea class="form-control" rows="1" name="remarks" placeholder="Remarks" id="remarks"></textarea>
+                                </div>
+                               
+                            </div>
+                        </div>
+
+                        <div class="card-footer text-right">
+                            <div class="button-group">
+                                <a href="javascript:void(0)" id="Add_SpecificObj"><i class="fas fa-plus"></i></a>
+                                <a href="javascript:void(0)" id="remove_SpecificObj"><i class="fas fa-trash-alt"></i></a>
+                                
+                                </a>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+
+
+                    
+                  
+
+
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="container">
+    <h5>New Project</h5>
+    <form method="POST">
+        <div class="form-group" id="dynamic_form">
+            <div class="row">
+                <div class="col-md-3">
+                    <input type="text" name="p_name" id="p_name" placeholder="Project Name" class="form-control">
+                </div>
+                <div class="col-md-3">
+                    <input type="text" name="p_name2" id="p_name2" placeholder="Project Name2" class="form-control">
+                </div>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" name="quantity" id="quantity" placeholder="Description">
+                </div>
+                <div class="col-md-4">
+                    <textarea class="form-control" rows="1" name="remarks" placeholder="Remarks"
+                        id="remarks"></textarea>
+                </div>
+                <div class="button-group">
+                    <a href="javascript:void(0)" class="btn btn-primary" id="Add_SpecificObj">Add KPI</a>
+                    <a href="javascript:void(0)" class="btn btn-danger" id="remove_SpecificObj">Remove KPI</a>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+
+
+<!------- Script ---------->
+
+<script>
+
+    
+    // For DateTimePickers on Start and End dates of the project
+    $("#start_datepicker").datepicker({
+        uiLibrary: 'bootstrap4'
+    });
+
+    $("#end_datepicker").datepicker({
+        uiLibrary: 'bootstrap4'
+    });
+
+
+    // Dynamic form here
+    $(document).ready(function () {
+        var dynamic_form = $("#dynamic_form").dynamicForm("#dynamic_form", "#Add_SpecificObj", "#remove_SpecificObj", {
+            limit: 10,
+            formPrefix: "dynamic_form",
+            normalizeFullForm: false
+        });
+
+        $("#dynamic_form #remove_SpecificObj").on('click', function () {
+            var initDynamicId = $(this).closest('#dynamic_form').parent().find("[id^='dynamic_form']").lenth;
+            if (initDynamicId === 2) {
+                $(this).closest('#dynamic_form').next().find('#remove_SpecificObj').hide()
+            }
+            $(this).closest("#dynamic_form").remove();
+        });
+
+    });
+
+
+</script>
+
+
+
+
+
+
+
+{% endblock %}
+
+<!-------------------------------------------------------------------------------->
+
+
+{% block scripts %}
+<script src="../static/js/dynamic-form.js"></script>
 {% endblock %}

@@ -8,4 +8,4 @@ class new_project(Form):
     start_date = StringField('Start Date', validators=[DataRequired()])
     end_date = StringField('end Date',  validators=[DataRequired()])
 
-    # format='%m/%d/%Y'
+    

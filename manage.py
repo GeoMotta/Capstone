@@ -1,5 +1,3 @@
-
-
 from MEDashboard import app, db
 from MEDashboard.models import User
 from flask_script import Manager, prompt_bool
