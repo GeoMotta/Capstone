@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+{% block title %} New Project {% endblock %}
+<!-------------------------------------------------------------------------------->
+
+{% block css %}
+    <script src="../static/vendor/jquery/jquery.min.js"></script>
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+<!-------------------------------------------------------------------------------->
+
+
+
+{% block content %}
+
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">Create New User</h1>
+<p class="mb-4">
+    Badilisha hapa, Badilisha hapa,  Badilisha hapa,  Badilisha hapa, Badilisha 
+    hapa,  Badilisha hapa, Badilisha hapa, 
+</p>
+<div class="card">
+    <div class="card-header">
+        Enter User Information
+    </div>
+    <div class="card-body">
+
+
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <form action="" method="POST">
+
+                    <!---- Basic Information ----->
+                    <h5 class="card-title mb-2 text-gray-900">Basic Information</h5>
+                    <hr class="sidebar-divider my-0">
+                    <br>
+
+                    <div class="form-group">
+                        <label for="project_name">username</label>
+                        <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp"
+                            placeholder="Enter Usermane..">
+                    </div>
+
+
+
+
+
+
+                    
+                  
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+<!-------------------------------------------------------------------------------->
+
+
+{% block scripts %}
+
+{% endblock %}

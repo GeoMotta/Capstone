@@ -44,13 +44,13 @@
 
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item {% if url_for(request.endpoint) =='/home' %} active {% endif %}">
+      <li class="nav-item">
         <a class="nav-link" href="{{url_for('home')}}">
           <i class="fas fa-home"></i>
           <span>Home</span></a>
       </li>
 
-      <li class="nav-item active">
+      <li class="nav-item">
           <a class="nav-link" href="index.html">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
@@ -61,29 +61,23 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        System Management
+        Interface
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item
-            {% if url_for(request.endpoint) in ['/new_user', '/user_home'] %} 
-              active  {% endif %} ">
-        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-          aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-user"></i>
-          <span>User</span>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-cog"></i>
+          <span>Components</span>
         </a>
-        <div id="collapseTwo" class="collapse 
-                {% if url_for(request.endpoint) in ['/new_user', '/user_home'] %} 
-                show {% endif %} " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">User Management:</h6>
-            <a class="collapse-item {% if url_for(request.endpoint) =='/new_user' %} active {% endif %}"
-              href="{{url_for('addUser')}}">Add User</a>
-            <a class="collapse-item {% if url_for(request.endpoint) =='/user_home' %} active {% endif %}"
-              href="{{url_for('userHome')}}">Manage Users</a>
+            <h6 class="collapse-header">Custom Components:</h6>
+            <a class="collapse-item" href="buttons.html">Buttons</a>
+            <a class="collapse-item" href="cards.html">Cards</a>
           </div>
         </div>
+      </li>
 
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
@@ -110,7 +104,25 @@
         Addons
       </div>
 
-     
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item active">
+        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Pages</span>
+        </a>
+        <div id="collapsePages" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Login Screens:</h6>
+            <a class="collapse-item" href="login.html">Login</a>
+            <a class="collapse-item" href="register.html">Register</a>
+            <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+            <div class="collapse-divider"></div>
+            <h6 class="collapse-header">Other Pages:</h6>
+            <a class="collapse-item" href="404.html">404 Page</a>
+            <a class="collapse-item active" href="blank.html">Blank Page</a>
+          </div>
+        </div>
+      </li>
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
@@ -328,23 +340,6 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-
-            <article class="flashers">
-                {% with messages = get_flashed_messages() %}
-                    {% if messages %}
-                        <ul>
-                            {% for message in messages %}
-                                <li>{{message}}</li>
-                            {% endfor %}
-                        </ul>
-                    {% endif %}
-                {% endwith %}
-            </article>
-            <h1>{{ url_for(request.endpoint) }}</h1>
-
-
-
-
             {% block content %}{% endblock %}
         </div>
         <!-- /.container-fluid -->
