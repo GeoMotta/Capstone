@@ -9,6 +9,7 @@ from MEDashboard.models import Project, User
 
 @app.route('/')
 def blank():
+    flash('testing flash message')
     return render_template('home.html')
 
 @app.route('/home')
@@ -32,6 +33,6 @@ def userHome():
 def addUser():
     if request.method == 'POST':
         username = request.form['username']
-        flash('Hallow world')
+        flash(username)
         return redirect(url_for('userHome'))
     return render_template('create_user.html')
