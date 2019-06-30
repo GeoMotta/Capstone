@@ -1,2 +1,2 @@
-# Capstone
-BMF, Monitoring and Evaluation Dashboard
+# Capstone Project
+BMF, Informed Decision Data Analytical Dashboard
