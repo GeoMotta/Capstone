@@ -8,4 +8,6 @@ class new_project(Form):
     start_date = StringField('Start Date', validators=[DataRequired()])
     end_date = StringField('end Date',  validators=[DataRequired()])
 
+class NewUser(Form):
+    f_name = StringField('project_name', validators=[DataRequired()])
     

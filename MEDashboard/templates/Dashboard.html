@@ -1,0 +1,282 @@
+{% extends "layout.html" %}
+
+{% block title %} New Project {% endblock %}
+<!-------------------------------------------------------------------------------->
+
+{% block css %}
+    <script src="../static/vendor/jquery/jquery.min.js"></script>
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+<!-------------------------------------------------------------------------------->
+
+
+
+{% block content %}
+
+<!-- flash message 
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+          {% for message in messages %}
+          <li><strong>Succcess: </strong> {{message}}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    -->
+
+
+<!-- Page Heading -->
+
+
+<!-- Begin Page Content -->
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-10 col-lg-8">
+            <form>
+                <div class="input-group">
+                    <input type="text" class="form-control bg-gray-200 border-1 small" placeholder="Search Project..."
+                        aria-label="Search" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button">
+                            <i class="fas fa-arrow-down fa-sm"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<div class="container-fluid">
+
+
+
+        <!-- Page Heading -->
+        <h1 class="h3 mb-2 text-gray-800">Dashboard: Mkapa Fellows</h1>
+        <!--
+        <p class="mb-4">Chart.js is a third party plugin that is used to generate the charts in this theme. The charts below have been customized - for further customization options, please visit the <a target="_blank" href="https://www.chartjs.org/docs/latest/">official Chart.js documentation</a>.</p>
+        -->
+
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card border-left-info shadow h-100 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                        <div class="text-md font-weight-bold text-info mb-1">Overall Project Progress</div>
+                        <div class="row no-gutters align-items-center">
+                          <div class="col-auto">
+                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                          </div>
+                          <div class="col">
+                            <div class="progress progress-sm mr-2">
+                              <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                  <div class="card border-left-info shadow h-100 py-2">
+                    <div class="card-body">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                          <div class="text-md font-weight-bold text-info mb-1">Budget exosted</div>
+                          <div class="row no-gutters align-items-center">
+                            <div class="col-auto">
+                              <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">12.5 M</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="card border-left-info shadow h-100 py-2">
+                      <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                          <div class="col mr-2">
+                            <div class="text-md font-weight-bold text-info mb-1">Risk assessment matrix</div>
+                            <div class="row no-gutters align-items-center">
+                              <div class="col-auto">
+                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">20%</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="card shadow mb-4">
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Strategic Objective 1</h6>
+              </div>
+              <div class="card-body">
+
+                <h4 class="small font-weight-bold">Indicator 1 <span class="float-right">55%</span></h4>
+                <div class="progress mb-4">
+                  <div class="progress-bar bg-danger" role="progressbar" style="width: 55%" aria-valuenow="20" aria-valuemin="0"
+                    aria-valuemax="100"></div>
+                </div>
+
+                <h4 class="small font-weight-bold">Indicator 2 <span class="float-right">40%</span></h4>
+                <div class="progress mb-4">
+                  <div class="progress-bar bg-danger" role="progressbar" style="width: 40%" aria-valuenow="20" aria-valuemin="0"
+                    aria-valuemax="100"></div>
+                </div>
+
+                <h4 class="small font-weight-bold">Indicator 3 <span class="float-right">30%</span></h4>
+                <div class="progress mb-4">
+                  <div class="progress-bar bg-danger" role="progressbar" style="width: 30%" aria-valuenow="20" aria-valuemin="0"
+                    aria-valuemax="100"></div>
+                </div>
+
+                <h4 class="small font-weight-bold">Indicator 4 <span class="float-right">40%</span></h4>
+                <div class="progress mb-4">
+                  <div class="progress-bar bg-danger" role="progressbar" style="width: 40%" aria-valuenow="20" aria-valuemin="0"
+                    aria-valuemax="100"></div>
+                </div>
+
+                <hr>
+              <!--  Styling for the bar chart can be found in the <code>/js/demo/chart-bar-demo.js</code> file.-->
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-lg-6">
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Strategic Objective 2</h6>
+                </div>
+                <div class="card-body">
+  
+                  <h4 class="small font-weight-bold">Indicator 1 <span class="float-right">55%</span></h4>
+                  <div class="progress mb-4">
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: 55%" aria-valuenow="20" aria-valuemin="0"
+                      aria-valuemax="100"></div>
+                  </div>
+  
+                  <h4 class="small font-weight-bold">Indicator 2 <span class="float-right">40%</span></h4>
+                  <div class="progress mb-4">
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: 40%" aria-valuenow="20" aria-valuemin="0"
+                      aria-valuemax="100"></div>
+                  </div>
+  
+                  <h4 class="small font-weight-bold">Indicator 3 <span class="float-right">30%</span></h4>
+                  <div class="progress mb-4">
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: 30%" aria-valuenow="20" aria-valuemin="0"
+                      aria-valuemax="100"></div>
+                  </div>
+  
+                  <h4 class="small font-weight-bold">Indicator 4 <span class="float-right">40%</span></h4>
+                  <div class="progress mb-4">
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: 40%" aria-valuenow="20" aria-valuemin="0"
+                      aria-valuemax="100"></div>
+                  </div>
+  
+                  <hr>
+                <!--   Styling for the bar chart can be found in the <code>/js/demo/chart-bar-demo.js</code> file.-->
+                </div>
+              </div>
+            </div>
+        
+          
+        </div>
+
+        
+
+
+
+
+
+        <!-- Content Row -->
+        <div class="row">
+
+          <div class="col-xl-8 col-lg-7">
+
+            <!-- Area Chart -->
+            <div class="card shadow mb-4">
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">KPI Progress</h6>
+              </div>
+              <div class="card-body">
+                <div class="chart-area">
+                  <canvas id="myBarChart"></canvas>
+                </div>
+                <hr>
+                <!--
+                Styling for the area chart can be found in the <code>/js/demo/chart-area-demo.js</code> file.
+              -->
+              </div>
+            </div>
+
+            
+
+          </div>
+
+          <!-- Donut Chart -->
+          <div class="col-xl-4 col-lg-5">
+            <div class="card shadow mb-4">
+              <!-- Card Header - Dropdown -->
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Resource Allocation</h6>
+              </div>
+              <!-- Card Body -->
+              <div class="card-body">
+                <div class="chart-pie pt-4">
+                  <canvas id="myPieChart"></canvas>
+                </div>
+                <hr>
+              <!--   Styling for the donut chart can be found in the <code>/js/demo/chart-pie-demo.js</code> file.-->
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- /.container-fluid -->
+
+
+
+
+{% endblock %}
+
+<!-------------------------------------------------------------------------------->
+
+
+{% block scripts %}
+
+<!-- Page level plugins -->
+<script src="static/vendor/chart.js/Chart.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="/static/js/demo/chart-area-demo.js"></script>
+<script src="static/js/demo/chart-pie-demo.js"></script>
+<script src="static/js/demo/chart-bar-demo.js"></script>
+
+{% endblock %}

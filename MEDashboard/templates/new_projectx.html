@@ -1,0 +1,310 @@
+{% extends "layout.html" %}
+
+{% block title %} New Project {% endblock %}
+<!-------------------------------------------------------------------------------->
+
+{% block css %}
+    <script src="../static/vendor/jquery/jquery.min.js"></script>
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Include SmartWizard CSS -->
+    <link href="../static/dist/css/smart_wizard.css" rel="stylesheet" type="text/css" />
+
+    <!-- Optional SmartWizard theme -->
+    <link href="../static/dist/css/smart_wizard_theme_circles.css" rel="stylesheet" type="text/css" />
+    <link href="../static/dist/css/smart_wizard_theme_arrows.css" rel="stylesheet" type="text/css" />
+    <link href="../static/dist/css/smart_wizard_theme_dots.css" rel="stylesheet" type="text/css" />
+
+{% endblock %}
+
+<!-------------------------------------------------------------------------------->
+
+<!-- Page Heading -->
+
+{% block content %}
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">New Project</h1>
+<hr>
+
+<div class="container">
+
+        <!-- SmartWizard 2 html -->
+        <div id="smartwizard2">
+            <ul>
+                <li><a href="#step-1">Basic Information</a></li>
+                <li><a href="#step-2">Objectives</a></li>
+                <li><a href="#step-3">Indicators</a></li>
+                <li><a href="#step-4">Review</a></li>
+            </ul>
+
+            <div>
+                <div id="step-1" class="">
+                    <h5></h5>
+                    <form method="POST" id="basicInfo_fm">
+                        <div class="row justify-content-center">
+                            <div class="col-11">
+                                <div class="form-group">
+                                    <label for="project_name">Project Title</label>
+                                    <input type="text" class="form-control" id="project_name" name="project_title" aria-describedby="emailHelp"
+                                        placeholder="Give your project a name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="project_descr">Description</label>
+                                    <textarea class="form-control" id="project_descr" name="project_descr" rows="2"></textarea>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="start_date">Start Date</label>
+                                            <input id="start_datepicker" placeholder="start" name="start_date"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="start_date">End Date</label>
+                                            <input id="end_datepicker" placeholder="End" name="end_date"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div id="step-2" class="">
+                    <h5></h5>
+                    <form method="POST" id="objectives_fm">
+                        <div class="row justify-content-center">
+                            <div class="col-11">
+                                <!---- Basic Information ----->
+                                <h5 class="card-title mb-2 text-gray-900">Basic Information</h5>
+                                <hr class="sidebar-divider my-0">
+                                <br>
+                
+                                <div class="card mb-4  border-left-primary" id="dynamic_form">
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label for="project_name">Strategic Objective</label>
+                                            <input type="text" class="form-control" id="project_name" aria-describedby="emailHelp"
+                                                placeholder="Enter strategic objective">
+                                        </div>
+                
+                                        <hr>
+                
+                                        <p class="mb-4">
+                                            Add specific objectives realated the to above mentioned stragetic objective.
+                                        </p>
+                
+                                        <!-- Testing the dynamic input table -->
+                                       
+                
+                                        <div class="row" id="dynamic_form2">
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" id="project_name"
+                                                        aria-describedby="emailHelp" placeholder="Specific Objective">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" id="project_name"
+                                                        aria-describedby="emailHelp" placeholder="Description">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" id="project_name"
+                                                        aria-describedby="emailHelp" placeholder="Person">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <div class="button-group">
+                                                    <a href="javascript:void(0)" id="Add_specific_obj"><i class="fas fa-plus"></i></a>
+                                                    <a href="javascript:void(0)" id="Remove_specific_obj"><i class="fas fa-trash-alt"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                
+                                        <hr>
+                
+                                        <!-- /End testing the dynamic testing table -->
+                                    </div>
+                
+                                    <div class="card-footer text-right">
+                                        <div class="button-group">
+                                            <a href="javascript:void(0)" id="Add_strategic_obj" style="padding-right: 15px"><i class="fas fa-plus"></i></a>
+                                            <a href="javascript:void(0)" id="Remove_strategic_obj"><i class="fas fa-trash-alt"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+
+                <div id="step-3" class="">
+                        
+                </div>
+
+                <div id="step-4" class="">
+                  <h2></h2>
+                  
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+  
+
+
+
+<script>
+    // For DateTimePickers on Start and End dates of the project
+    $("#start_datepicker").datepicker({
+        uiLibrary: 'bootstrap4'
+    });
+
+    $("#end_datepicker").datepicker({
+        uiLibrary: 'bootstrap4'
+    });
+
+    // Dynamic form here
+    $(document).ready(function () {
+
+        // Dynamic strategic objective *****************************************************************************
+        var dynamic_form = $("#dynamic_form").dynamicForm("#dynamic_form", "#Add_strategic_obj", "#Remove_strategic_obj", {
+            limit: 10,
+            formPrefix: "dynamic_form",
+            normalizeFullForm: false
+        });
+
+        $("#dynamic_form #Remove_strategic_obj").on('click', function () {
+            var initDynamicId = $(this).closest('#dynamic_form').parent().find("[id^='dynamic_form']").lenth;
+            if (initDynamicId === 2) {
+                $(this).closest('#dynamic_form').next().find('#Remove_strategic_obj').hide()
+            }
+            $(this).closest("#dynamic_form").remove();
+        });
+
+        // Dynamic Specific Ojbective *********************************************************************************
+        var dynamic_form = $("#dynamic_form2").dynamicForm("#dynamic_form2", "#Add_specific_obj", "#Remove_specific_obj", {
+            limit: 10,
+            formPrefix: "dynamic_form2",
+            normalizeFullForm: false
+        });
+
+        $("#dynamic_form2 #Remove_specific_obj").on('click', function () {
+            var initDynamicId = $(this).closest('#dynamic_form2').parent().find("[id^='dynamic_form2']").lenth;
+            if (initDynamicId === 2) {
+                $(this).closest('#dynamic_form2').next().find('#Remove_specific_obj').hide()
+            }
+            $(this).closest("#dynamic_form2").remove();
+        });
+
+
+
+
+
+    });
+</script>
+
+
+
+{% endblock %}
+
+<!-------------------------------------------------------------------------------->
+
+
+{% block scripts %}
+<!-- Include SmartWizard JavaScript source -->
+<script type="text/javascript" src="../static/dist/js/jquery.smartWizard.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        // Step show event
+        $("#smartwizard").on("showStep", function(e, anchorObject, stepNumber, stepDirection, stepPosition) {
+           //alert("You are on step "+stepNumber+" now");
+           if(stepPosition === 'first'){
+               $("#prev-btn").addClass('disabled');
+           }else if(stepPosition === 'final'){
+               $("#next-btn").addClass('disabled');
+           }else{
+               $("#prev-btn").removeClass('disabled');
+               $("#next-btn").removeClass('disabled');
+           }
+        });
+
+        // Toolbar extra buttons
+        var btnFinish = $('<button></button>').text('Finish')
+                                         .addClass('btn btn-info')
+                                         .on('click', function(){ alert('Finish Clicked'); });
+        var btnCancel = $('<button></button>').text('Cancel')
+                                         .addClass('btn btn-danger')
+                                         .on('click', function(){ $('#smartwizard').smartWizard("reset"); });
+
+        // Please note enabling option "showStepURLhash" will make navigation conflict for multiple wizard in a page.
+        // so that option is disabling => showStepURLhash: false
+
+      
+
+        // Smart Wizard 2
+        $('#smartwizard2').smartWizard({
+                selected: 0,
+                theme: 'default',
+                transitionEffect:'fade',
+                showStepURLhash: false
+        });
+
+        // Initialize the leaveStep event
+        $("#smartwizard2").on("leaveStep", function (e, anchorObject, stepNumber, stepDirection) {
+            if (stepNumber == 0){
+
+                $.ajax({
+                    url: '/add_project',
+                    data: $('#basicInfo_fm').serialize(),
+                    type: 'POST',
+                    success: function (response) {
+                        console.log(response);
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            }
+        });
+
+        $("#smartwizard2").on("leaveStep", function (e, anchorObject, stepNumber, stepDirection) {
+            if (stepNumber == 2) {
+                $('.collapsable-collapsableAll').collapsable({
+                    collapsableAll: false,
+                    fx: 'slide',
+                    fxDuration: 300
+                });
+
+            }
+        });
+
+
+        
+
+
+        
+
+    });
+
+</script>
+
+
+
+
+
+
+
+<script src="../static/collapsable/jquery.collapsable.min.js"></script>
+<script src="../static/js/dynamic-form.js"></script>
+
+{% endblock %}
